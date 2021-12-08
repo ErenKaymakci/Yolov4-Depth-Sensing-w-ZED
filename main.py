@@ -25,22 +25,22 @@ class YolowZED:
 
 
     def initZED(self):
-            self.zed = sl.Camera()
+        self.zed = sl.Camera()
 
-            init_params = sl.InitParameters()
-            init_params.depth_mode = sl.DEPTH_MODE.PERFORMANCE 
-            init_params.coordinate_units = sl.UNIT.METER 
-            init_params.camera_resolution = sl.RESOLUTION.HD720
+        init_params = sl.InitParameters()
+        init_params.depth_mode = sl.DEPTH_MODE.PERFORMANCE 
+        init_params.coordinate_units = sl.UNIT.METER 
+        init_params.camera_resolution = sl.RESOLUTION.HD720
 
-            err = self.zed.open(init_params)
+        err = self.zed.open(init_params)
     
-            if err != sl.ERROR_CODE.SUCCESS:
-                exit(1)
+        if err != sl.ERROR_CODE.SUCCESS:
+            exit(1)
 
-            self.runtime_parameters = sl.RuntimeParameters()
-            self.runtime_parameters.sensing_mode = sl.SENSING_MODE.STANDARD  
-            self.runtime_parameters.confidence_threshold = 100
-            self.runtime_parameters.textureness_confidence_threshold = 100
+        self.runtime_parameters = sl.RuntimeParameters()
+        self.runtime_parameters.sensing_mode = sl.SENSING_MODE.STANDARD  
+        self.runtime_parameters.confidence_threshold = 100
+        self.runtime_parameters.textureness_confidence_threshold = 100
 
 
     def getMeasure_of_pix(self,x,y):
